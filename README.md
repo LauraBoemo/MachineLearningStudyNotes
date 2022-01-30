@@ -4,7 +4,6 @@ Hi! Welcome to my Machine Learning Study Notes on AWS! 👋 I strongly hope this
 
 <br>
 
----
 ## 1. Where it all starts... Amazon S3
 
 <br>
@@ -160,6 +159,5 @@ The old way to enable Default Encryption was to use a bucket policy and refuse a
 
 <br>
 
----
 
 ## 2. Kinesis Data Stream & Kinesis Data Firehose 
