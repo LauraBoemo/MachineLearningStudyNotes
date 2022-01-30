@@ -6,8 +6,6 @@ Hi! Welcome to my Machine Learning Study Notes on AWS! 👋 I strongly hope this
 
 ## 1. Where it all starts... Amazon S3
 
-<br>
-
 ### 📌 AWS S3 Overview
 Amazon S3 allows people to **store Objects** (any type of file format, such as CSV, JSON, Parquet, ORC, Avro, Protobuf, etc; as long as it contains a maximum size of 5TB) in **Buckets** (same as directories);
 
