@@ -243,3 +243,5 @@ Kinesis Data Firehose is to store data in different places.
     - **Near** real time (lowest buffer time is 1 minute)
     - Automated Scaling
     - No data storage
+
+### 📌 Kinesis Analytics, Conceptually...
