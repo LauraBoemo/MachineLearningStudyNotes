@@ -159,3 +159,62 @@ The old way to enable Default Encryption was to use a bucket policy and refuse a
 
 
 ## 2. Kinesis Data Stream & Kinesis Data Firehose 
+
+### 📌 AWS Kinesis Overview
+#### ⭐ Extremely Important Subject for AWS ML ⭐<br>
+Kinesis is a managed alternative to Apache Kafka. It is great for applications logs, metrics, IoT, and clickstreams; also great for "real-time" big data and streaming processing frameworks (Spark, NiFi, etc...). In Kinesis, all the data is automatically replicated synchronously to 3 AZ.
+
+📝 Kinesis products...
+- Kinesis Streams: low latency straming ingest at scale;
+- Kinesis Analytics: perform real-time analytics on streams using SQL;
+- Kinesis Firehose: load strams into S3, Redshift, ElasticSearch & Splunk;
+- Kinesis Video Streams: meant for streaming video in real-time;
+
+From a archtecture point of view Kinesis looks like...
+1. Click streams, IoT devices, Metrics & Logs will be onboard by "Amazon Kinesis Streams";
+2. Then we perfom some real time analytics with them, using "Amazon Kinesis Analytics";
+3. Then, finally, we move those analytics to "Amazon Kinesis Firehose" that will put all data in Amazon S3 bucket or Amazon Redshift;
+
+```
+Obs.: "Amazon Kinesis Streams", "Amazon Kinesis Analytics" and "Amazon Kinesis Firehose" are "Amazon Kinesis"
+```
+
+### 📌 Kinesis Data Streams 
+📝 Overview...
+- Streams are divided in ordered Shards/Partitions.
+- Shards have to be provisioned in advance (capacity panning).
+- More Shards = More capacity and speed.
+    <br>-- Producers --> | Shard 1 / Shard 2 / Shard 3 | -- Consumers -->
+- Data retention is 24 hours by default, can go up to 365 days.
+- Ability to reprocess/replay data.
+- Multiple applications can consume the same stream.
+- Once data is inserted in Kinesis, it can't be deleted (immutability).
+- Records can be up to 1MB in size.
+
+📝 Limits to know...
+- Producer
+    - 1MB/s or 1000 messages/s at write PER SHARD
+    - "ProvisionedThroughputException" otherwise
+- Consumer Classic
+    - 2 MB/s at read PER SHARD across all consumers
+    - 5 API calls per second PER SHARD across all consumers
+- Data Retention
+    - 24 hours data retention by default
+    - Can be extended to 365 days
+
+Kinesis Stream is great fo real time streaming applications. It is something that you will need provision in advance.
+
+### 📌 Kinesis Data Firehose
+Kinesis Data Firehose is to store data in different places.
+<br><br>We have producers (Applications, Client, SDK, KPL, Kinesis Agent) <br>--> The data they produce will be read by Kinesis Data Streams (most common), or Amazon CloudWatch (Logs & Events), or AWS IoT <br>--> And then finally processed bt Kinesis Data Firehose, recorded one by one, up to 1MB each one. And if you want to transform de record, we have Lambda Function for Data Transformation in this step <br>--> After that is created a Batch Writes of all the information and move it to the target destination <br>--> The destinations can be...
+- 3rd-party Partner Destinations
+    - Datadog
+    - Splunk
+    - New Relic
+    - MongoDB
+- AWS Destinations
+    - Amazon S3
+    - Amazon Redshift (COPY through S3)
+    - Amazon ElasticSearch
+- Custom Destinations
+    - HTTP Endpoint
