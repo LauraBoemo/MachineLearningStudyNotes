@@ -218,3 +218,28 @@ Kinesis Data Firehose is to store data in different places.
     - Amazon ElasticSearch
 - Custom Destinations
     - HTTP Endpoint
+
+📝 Overview...
+- Fully Managed Service, no administration
+- Near Real Time (60 seconds latency minimum for non full batches)
+- Data Integration into Redshift / Amazon S3 / ElasticSearch / Splunk
+- Automatic Scaling
+- Supports many data formats
+- Data Conversions from CSV / JSON to Parquet / ORC (only for S3)
+- Data transformation through AWS Lambda (ex.: CSV => JSON)
+- Supports compression when target is Amazon S3 (GZIP, ZIP, and SNAPPY)
+- Pay for the amount of data going through Firehose 
+
+### 📌 Kinesis Data Streams vs Firehose
+- Streams
+    - Going to write custom code (producer / consumer) - real time applications
+    - Real time (~200ms latency for classic, ~70ms latency for enhaced fan-out)
+    - Must manage scaling (shard splitting (more shard) / merging (less shard))
+    - Data Storage for 1 to 365 days, replay capability and multi consumers
+- Firehose
+    - Delivery service, **ingestion** service.
+    - Fully managed, send to S3, Splunk, Redshift, ElasticSearch
+    - Serverless data transformations with Lambda
+    - **Near** real time (lowest buffer time is 1 minute)
+    - Automated Scaling
+    - No data storage
