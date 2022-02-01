@@ -375,3 +375,72 @@ Fargate (Docker) -- 2. Checkpoint Stream Processing status (Consumer) --> 3. Sen
     - Caching mechanism
     - Not really used for Machine Learning
     
+## 5. AWS Data Pipelines
+- Features
+    - Service to move data to another place, it is an ETL service
+    - Destinations include S3, RDS, DynamoDB, Redshift and EMR
+    - Manages task dependencies (it has a S3 inside it to process)
+    - Retries and notifies on failures
+    - Data sources may be on-premises
+    - Highly available
+- Data Pipeline example
+    - Considering that we have data inside a RDS/DynamoDB, and we want to move it to a S3 Bucket to use this data whith SageMaker; we can use the AWS Data Pipeline to generate EC2 Instances (managed by Data Pipeline)
+- AWS Data Pipeline vs Glue
+    - Glue
+        - Glue ETL - Run Apache Spark code, Scala or Python based, focus on the ETL
+        - Glue ETL - Do not worry about configuring or managing the resources
+        - Data Catalog to make the data available to Athena or Redshift Spectrum
+    - Data Pipeline
+        - Orchestration service
+        - More control over the environment, compite resources that run code, & code 
+        - Allows access to EC2 or EMR instances (creates resources in your own account)
+
+## 6. AWS Batch
+- Run batch jobs as Docker images
+- Dynamic provisioning of the instances (EC2 & Spot Instances)
+- Optimal quantity and type based on volume and requirements
+- No need to manage clusters, fully serverless
+- Just pay for the underlying EC2 instances
+- Schedule Batch Jobs using CloudWatch Events
+- Orchestrate Batch Jobs using AWS Step Functions
+
+<br>
+
+- AWS Batch vs Glue
+    - Glue
+        - Glue ETL - Run Apache Spark code, Scala or Python based, focus on the ETL
+        - Glue ETL - Do not worry about configuring or managing the resources
+        - Data Catalog to make the data available to Athena or Redshift Spectrum
+    - Batch
+        - For any computing job regardless of the job (must provide Docker image)
+        - Resources are created in your account, managed by Batch
+        - For any non-ETL related work, Batch is probably better
+        
+## 6. AWS DMS - Data Migration Service
+- Quickly and securely migrate databases to AWS, resilient, self healing
+- The source database remains available during the migration
+- Supports
+    - Homogeneous migrations: ex Oracle to Oracle
+    - Heterogeneous migrations: ex Microsoft SQL Server to Aurora
+- Continous Data Replication using CDC 
+- You must create an EC2 instance to perform the replication tasks
+
+- AWS DMS vs Glue 
+    - Glue
+        - Glue ETL - Run Apache Spark code, Scala or Python based, focus on the ETL
+        - Glue ETL - Do not worry about configuring or managing the resources
+        - Data Catalog to make the data available to Athena or Redshift Spectrum
+    - AWS DMS
+        - Continuous Data Replication
+        - No data transformation
+        - Once the data is in AWS, you can use Glue to transform it
+
+## 7. AWS Step Functions
+- Use to design workflows
+- Easy visualizations
+- Advanced Error Handling and Retry mechanism outside the code 
+- Audit of the history of workflows
+- Ability do "Wait" for an arbitrary amount of time
+- Max execution time of a State Machine is 1 year
+
+## 8. Full Data Engineering Pipeline Real-Time Layer
