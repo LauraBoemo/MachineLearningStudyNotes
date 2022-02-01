@@ -245,3 +245,57 @@ Kinesis Data Firehose is to store data in different places.
     - No data storage
 
 ### 📌 Kinesis Analytics, Conceptually...
+
+Amazon Kinesis Data Streams + Amazon Kinesis Dara Firehose --> Amazon Kinesis Data Analytics --> Analytics Tools, Outputs
+
+
+### 📌 Kinesis Analytics, In more depth...
+Input Stream(s) (Amazon Kinesis Data Streams, Amazon Kinesis Data Firehose) + Reference Table (Amazon S3) --> Amazon Kinesis Data Analytics ("SELECT STREAM (ItemID, count(*) FROM SourceStream GROUP BY ItemID)") --> Output Streams (Amazon Kinesis Data Streams + Amazon Kinesis Data Firehose --> Amazon S3 + Amazon Redshift) or Error Stream (query goes wrong)
+
+### 📌 Kinesis Data Analytics..
+- Use cases
+    - Streaming ETL: select columns, make simple transformations, on streaming data (ex.: reduce size of data set by selecting columns, making that with simple transformations in streaming data)
+    - Continuous metric generation: live leaderboard for a mobile game
+    - Responsive analytics: look for certain criteria and build alerting (filtering)
+- Features
+    - Pay only for resources consumed (but its not cheap)
+    - Serverless: scales automatically
+    - Use IAM permissions to access streaming source and destinations
+    - SQL for Flink to write the computation
+    - Schema discovery
+    - Lambda can be used for pre-processing
+    
+### 📌 Machine Learning on Kinesis Data Analytics..
+- Algorithms to remember...
+    - RANDOM_CUT_FOREST
+        - SQL function used for anomaly detection on numeric columns in a stream
+        - Example: detect anomalous subway ridership during the NYC marathon
+        - Uses recent history to compute model 
+    - HOTSPOTS
+        - locate and return information about relatively dense regions in your data
+        - Example: a collection of overheated servers in a data
+        
+### 📌 Kinesis Video Stream
+- Producers
+    - Security camera, body-worn camera, AWS DeepLens, smartphone camera, audio feeds, images, RADAR data, RTSP camera.
+    Producer SDK + DeepLens ---> Kinesis Video Stream
+    - One producesr per video stream
+- Video playback capability
+- Consumers
+    - build your own (MXNet, Tensorflow)
+    - AWS SageMaker
+    - Amazon Rekognition Video
+- Keep data for 1 hour to 10 years - data retention
+
+
+### 📌 Kinesis Video Stream Use Cases
+Kinesis Video Stream -- 1. Consume video stream in real-time -->
+Fargate (Docker) -- 2. Checkpoint Stream Processing status (Consumer) --> 3. Send decoded frames for ML-based inference
+<br> --> Fargate (Docker) -- 4. Publish inference results --> Kinesis Data Streams -- 5. Notifications --> AWS Lambda
+
+
+### 📌 Kinesis Summary -- Machine Learning
+- Kinesis Data Stream: create real-time machine learning applications
+- Kinesis Data Firehose: ingest massive data near-real time
+- Kinesis Data Analytics: real-time ETL/ML algorithms on streams
+- Kinesis Video Stream: real-time video stream to create ML applications
