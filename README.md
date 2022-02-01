@@ -4,6 +4,8 @@ Hi! Welcome to my Machine Learning on AWS study notes! 👋 I strongly hope this
 
 <br>
 
+# 1. Data Engineering
+
 ## 1. Where it all starts... Amazon S3
 
 ### 📌 AWS S3 Overview
@@ -299,3 +301,77 @@ Fargate (Docker) -- 2. Checkpoint Stream Processing status (Consumer) --> 3. Sen
 - Kinesis Data Firehose: ingest massive data near-real time
 - Kinesis Data Analytics: real-time ETL/ML algorithms on streams
 - Kinesis Video Stream: real-time video stream to create ML applications
+
+<br>
+
+## 2. Glue Data Catalog & Crawlers
+- Metadata repository for all your tables
+    - Automated Schema Inference
+    - Schemas are versioned
+    Amazon S3 -- index --> AWS Glue Data Catalog
+- Integrate with Athena or Redshift Spectrum (schema & data discovery)
+    Amazon S3 -- index --> AWS Glue Data Catalog -- use schema --> AmazonRedshift/Amazon Athena --> Amazon QuicjSight/Amazon EMR
+- The Glue Crawlers can help build the Glue Data Catalog
+
+### 📌 Glue Data Catalog - Crawlers
+- Creawlers go through your data to infer schemas and partitions 
+- Works JSON, Parquet, CSV, relational store
+- Crawlers work for: S3, Amazon Redshift, Amazon RDS
+- Run the Crawler ona Schedule or On Demand
+- Need an IAM role/credentials to access the data stores
+
+### 📌 Glue and S3 Partitions
+- Glue crawler will extract partitions based on how your S3 data is organized
+- Think up front about how you will be querying your data lake in S3
+- Exemple: devices send sensor data every hour
+    - Do you query primarily by time ranges?
+        - If so, organize your buckets as s3://my-bucket/dataset/yyyy/mm/dd/device
+    - Do you query primarily by device?
+        - If so, organize your buckets as s3://my-bucket/dataset/device/yyyy/mm/dd
+
+## 3. Glue ETL
+- Transform Data, Clean Data, Enrich Data (before doing analysis)
+    - Generate ETL code in Python or Scala, you can modify the code
+    - Can provide your own Spark or PySpark scripts
+    - Target can be S3, JDBC (RDS, Redshift), or in Glue Data Catalog
+- Fully managed, cost effective, pay only for the resources consumed
+- Jobs are run on a serverless Spark platform 
+- Glue Scheduler to schedule the jobs
+- Glue Triggers to automate job runs based on "Events"
+
+### 📌 Glue ETL - Transformations
+- Bundled Transformations
+    - DropFields, DropNullFields - remove (null) fields
+    - Filter - specify a function to filter records
+    - Join - to enrich data
+    - Map - add fields, delete fields, perform external lookups
+- Machine Learning Transformations
+    - FindMatches ML: identify duplicate or matching records in your dataset, even when the records do not have a common unique identifier and no fields match exactly
+- Format conversions: CSV, JSON, Avro, Parquet, ORC, XML 
+- Apache Spark transformations (example: K-Means)
+
+<br>
+
+## 4. AWS Data Stores for Machine Learning
+- Redshift
+    - Data Warehousing, SQL Analytics (OLAP - Online Analytical Processing) 
+    - Load data from S3 to Redshift
+    - Use Redshift Spectrum to query data directly in S3 (no loading)
+- RDS, Aurora
+    - Relational Store, SQL (OLTP, Online Transaction Processing)
+    - Must provision servers in advance
+- Dynamo DB 
+    - NoSQL data store, serverless, provision read/write capacity
+    - Useful to store a machine learning model served by your application
+- S3
+    - Object storage
+    - Serverless, infinite storage
+    - Easy Integration 
+- ElasicSearch
+    - Indexing of data
+    - Search amongst data ponits
+    - Clickstram analytics
+- ElastiCache
+    - Caching mechanism
+    - Not really used for Machine Learning
+    
