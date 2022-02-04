@@ -444,3 +444,5 @@ Fargate (Docker) -- 2. Checkpoint Stream Processing status (Consumer) --> 3. Sen
 - Max execution time of a State Machine is 1 year
 
 ## 8. Full Data Engineering Pipeline Real-Time Layer
+
+<!-- Tomorrow i will be back to those studies!!  -->
