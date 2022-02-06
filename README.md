@@ -445,4 +445,4 @@ Fargate (Docker) -- 2. Checkpoint Stream Processing status (Consumer) --> 3. Sen
 
 ## 8. Full Data Engineering Pipeline Real-Time Layer
 
-<!-- Tomorrow i will be back to those studies!!  -->
+<!-- Tomorrow i will be back to those studies!!, ok I will be better...  -->
