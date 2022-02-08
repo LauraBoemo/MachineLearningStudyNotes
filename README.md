@@ -443,6 +443,95 @@ Fargate (Docker) -- 2. Checkpoint Stream Processing status (Consumer) --> 3. Sen
 - Ability do "Wait" for an arbitrary amount of time
 - Max execution time of a State Machine is 1 year
 
-## 8. Full Data Engineering Pipeline Real-Time Layer
+<br>
 
-<!-- Tomorrow i will be back to those studies!!, ok I will be better...  -->
+# 2. Exploratory Data Analysis
+
+## 1. Features engineering 
+
+- All about features engineering in exploratory data analysis
+- Python is becoming ubiquitous. Libraries...
+    - PANDA
+        - For slicing and dicing data
+        - Data frames series (table of the data, like Excel), Series (unidimentional role for the data frame), interoperates with Numpy (from tables to array)
+        - Examples... 
+            1. "df[['Years of Experience', 'Hired']][:5]" --> Extrct 5 lines of tose two columns of the data frame.
+            2. degree_counts = df = ['Level of Education'] value_counts() --> Counts the number of values
+        - Basically Panda extract some parts of the data
+    - MATPLOTLIB
+        - Used for data visualization, deal with data distribution and outliners
+    - SEABORM 
+        - Like Matplotlib but more flexible, "hot" maps
+    - PEARPLOTS
+        - Some plots for data visualization, seaborn
+    - SCIKIT_LEARN
+        - Python library for Machine Learning models --> Decision three - cascate of decision points 
+``` 
+from sklearn.ensemble import RandomForestClassifier
+
+clf = RandomForestClassifier(n_estimators=10)
+clf = clf.fit(X, y)
+# X = attributes, y = labels
+
+# Predict employment of an employed 10-year veteran
+print (clf.predict([[10, 1, 4, 0, 0, 0]]))
+# ...and an unemployed 10-year veteran
+print (clf.predict([[10, 1, 4, 0, 0, 0]]))
+
+# Result
+[1] (Hired)
+[0] (Not hired)
+``` 
+
+## 2. Types of Data 
+
+- Many Flavors of Data - different kinds of data. Tge type of data you're dealing with will dictate what kind of algorithm you might use to create a machine learning model from it.
+- Major Types of Data
+    - Numerical
+    - Logical
+    - Ordinal
+
+### 2.1 Numerical   
+- Represents some sort of quantitative measurement
+    - Height of people, page load times, stock prices, etc
+- Discrete Data
+    - Integer based; often counts of some event
+        - How many purchases did a customer make in a year?
+        - How many times did I flip "heads"?
+- Continuous Data
+    - Has an infinite number of possible values, like fractions
+        - How much time did it take for a user to check out?
+        - How much rain fell on a given day?
+
+### 2.2 Logical   
+- Qualitative data that has no inherent mathematical meaning
+    - Gender, Yes/No (binary), Race, State of Residence, Product Category, Political Party, etc.
+- You can assign numbers to categories to represent them more compactaly, but the numbers don't have mathematical meaning
+
+### 2.3 Ordinal   
+- A mixture of numerical and categorical
+- Categorical data that has mathematical meaning
+- Example: movie ratings on a 1-5 scale
+    - Ratings must be 1, 2, 3, 4, or 5
+    - But these values have mathematical meaning; 1 means its a worse movie than a 2
+
+## 2. Data Distributions
+
+- A "Normal Distribution"
+    - Example of a probability density function
+    - "Gives you the probability of a data point falling within some given range of a given value"
+- Probability Mass Function
+    - When you deal with discrete data, it is a way to visualize the probability of discrete data occourring
+    - Looks like a histogram because it is basically a histogram
+
+    Looking deep into de differences...
+    - The probability density function is a solid curve that describes the probability of a range of values happening with continuous data; probability mass function is the probabilities of given discrete values occurring in a dataset 
+- Poisson Distribution
+    - Example of probability mass function is the poisson distribution, discrete distribution
+- Binomial Distribution
+    - Describes the number of successes in a sequence of experiments with a yes or no question
+    - Ex.: flip a coin
+- Bernoulli Distribution
+    - Special case of binomial distribution
+    - Has a single trial (n=1)
+    - Can think of a binomial distribution as the sum of bernoulli distributions
