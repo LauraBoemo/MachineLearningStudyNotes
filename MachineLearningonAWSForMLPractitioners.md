@@ -71,9 +71,7 @@ There are tree types...
 <br>Feature Engineering is a data transformation, the process of reshaping data to get more value out of it
 <br>Feature Selection is a variable/subset selection process of using the most valuable data 
 
----
-### Challenges and limitations of AI
-Common use cases for AI
+<br>Common use cases for AI
 - Marketing
 - Finance
 - Transportation
@@ -84,5 +82,29 @@ Common use cases for AI
 - Legal
 - Finance
 
+<br>Example of use cases: <br>
+Image Recognition > Amazon Rekognition<br>
+Translation and transcription > Amazon Translate and Amazon 
+- Obs.: You don't need any API. AWS already provide everything for you...<br>
 
-- Case study: Insurance Fraud use case
+Text analysis > Amazon Comprehen (understand the key words - there is a location? name? type?)
+
+---
+### Challenges and limitations of AI
+DATA: If you put bad data, you will get bad predictions. It fuels ML, so garbage-in/garbage-out still applies<br>
+BIAS: Poor predictions and decisions can be traced back to biased data<br>
+EXPLAINABILITY: How and why the model makes certain predictions<br>
+NARROW AI: Lack of generalized AI, where the current AI can only perform specific tasks within a narrow domain<br>
+ALGORITHM TRANSPARENCY: Ability of ML Models to take learning from one arena and apply to another<br>
+EMOTIONAL INTELLIGENCE: Basic human trait is still a challenge in ML
+<br>
+<br>
+Biases in ML that we need to be aware of and deal with, such as...
+- Sample bias (balance your data, dont exclude no one), Prejudicial bias (data might not be valid/corret in regards to gender, community, income), Exclusion bias (feature selections taking away some features, dont take away important bias), Measurement bias (data collecet from training is different than the data collected from production), Algorithmic bias (th wrong choice of algorithmic)
+- data preparation is the keuy to avoid bias, AmazonSageMakerClarify design to help developers to solve bias in AI
+- Responsible AI: harnessing the power of AI in an ethical, fair, and responsible manner with full transparency, accountability and freedom from bias.
+- Data lineage tracks: the origin of the data, what happens to it, where it moves over time during data anaytics processes
+- Reproducibility/Auditability: Any results should be documented by making all data and code available in such a way that computations can be run again with identical results
+- Data lineage, reproducibility, and auditability are important to investigate potentia bias in data and to ensur transparency
+---
+### Case study: Insurance Fraud use case
