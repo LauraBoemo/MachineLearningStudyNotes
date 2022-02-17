@@ -56,7 +56,7 @@ ML timeline...<br>
 There are tree types...
 1. Supervised learning
     <br>Similar how humans learn: Human intervention and validation required; <br>e.g., photo classification (input. e.g., photo of a dog) + tagging (label. e.g., "Labrador" label) = training data --> Machine Learning Algorithm --> Prediction ("Cat"). In this case, we compare our prediction with the label, cat = dog? So, cat is not equal as dog, and then we go back to our ML algorithm and adjust its model.<br><br>Two types of algorithms
-    <br>1.1. Regression;<br>- E.g., estimating tag price<br>1.2. Classification;<br>- E.g., Disting in categories, bynary  and multyclass clasifications for ex.<br><br>
+    <br>1.1. Regression;<br>- E.g., estimating tag price. A regression algorithm is applicable for predicting outcomes when the input falls within a numeric range.  Common use cases include house price prediction and demand forecasting. For example, you could use a regression algorithm to forecast product demand during Christmas.<br>1.2. Classification;<br>- E.g., Disting in categories, bynary  and multyclass clasifications for ex.<br><br>
 2. Unsupervised learning
     <br>When we don't have any label data. The ML Algorithm looks to the parameter (usually, it is a graphic) and then do predictions, which is placing things into specific groups. It is not comparable..<br><br>One type of algorithms
     <br>2.1. Grouping/Clustering
