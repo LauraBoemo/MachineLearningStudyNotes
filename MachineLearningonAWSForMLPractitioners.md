@@ -107,4 +107,3 @@ Biases in ML that we need to be aware of and deal with, such as...
 - Reproducibility/Auditability: Any results should be documented by making all data and code available in such a way that computations can be run again with identical results
 - Data lineage, reproducibility, and auditability are important to investigate potentia bias in data and to ensur transparency
 ---
-### Case study: Insurance Fraud use case
