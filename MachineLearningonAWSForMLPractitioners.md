@@ -106,4 +106,192 @@ Biases in ML that we need to be aware of and deal with, such as...
 - Data lineage tracks: the origin of the data, what happens to it, where it moves over time during data anaytics processes
 - Reproducibility/Auditability: Any results should be documented by making all data and code available in such a way that computations can be run again with identical results
 - Data lineage, reproducibility, and auditability are important to investigate potentia bias in data and to ensur transparency
+
 ---
+
+<br>
+<br>
+<br>
+
+
+## Module 2: Artificial Intelligence Services on AWS
+---
+
+<br>
+
+---
+### Amazon Machine Learning Stack
+- Our misison at AWS<br><br>
+Put machine learning in the hands of every developer. Make it easy to all developers.<br><br>
+
+- Why AWS for ML?<br><br>
+    Broad and deep set of ML and AI services
+    - 200+ new features and services launched within the last year
+    - Solutions for everyone from ML scientists to application developers
+    - Support for all three major frameworks
+    <br>
+
+    Machine learning with Amazon SageMaker
+    - Single integrated development environment (IDE) for the entire ML workflow
+    - At least 54% lower total cost of owneership (TCO) 
+    - In the last 2 years, 10.000 customers have adopted Amazon SageMaker
+    <br>
+
+    Comprehensive Cloud Offerings
+    - Highly secure, reliable, fully featured data store
+    - Strong set of compute, storage, security, and analytics capabilites to build on
+    - 85% of TensorFlow in the cloud runs in the AWS Cloud
+
+- Amazon ML Stack<br><br>
+    More deeper you go in this stack, more flexibility you get to your modules. More up, more acessible.
+
+
+    AI Services: addressed to business problems, developers only point their input in a API for each services and recieve in return an specific output, which is the prediction (AI services dont require any expertise) - modules pre-trained
+    - Vision
+    - Speech
+    - Text
+    - Search
+    - Chatbots
+    - Personalize
+    - Forecast
+    - Fraud
+    - Development
+    - Contact Centers
+    <br>
+
+    ML Services: for data scientis, to work directaly on the frameworks - train your modules
+    - Amazon SageMaker
+    - Ground Truth 
+    - AWS Marketplace for ML
+    - SageMaker Studio IDE
+    - Neo
+    - Augmented AI
+    <br>
+
+    ML Frameworks and infrastructure
+    - Tensorflow, MXNext, PyTorch
+    - Gluon, Keras, DeepGraphLibrary
+    - Deep Learning, AMIs and Containers
+    - GPUs and CPUs
+    - Elastic Inference
+    - Inferencia
+    - FPGA
+
+    <br><br>
+- Amazon ML Stack - AI Services<br>
+Pré-trained modules adressed to business problems.<br><br>
+    - Amazon Rekognition
+        - Function: Automate image and video analysis with ML
+        - Use Cases: Media analysis, Identity verification, Content moderation
+        - Key Features
+            - Labels: Custom Labels (used on Tinder, like you put and image biking, theu suggest put "biking" on your bio)
+            - Content moderation: Text detection (avoid violence images on social media, for example)
+            - Facial detection: Face search and verification (someone is happy or unhappy, or looking for specific persons)
+            - Celebrity recognition: Pathing
+    - Amazon Textract
+        - Function: Extract any text data from any document using machine learning and without manual effort
+        - Use Cases: Create smart search indexes, Build automated document processing workflows, Maintain compliance documents archives
+        - Benefits
+            - Extract structured and unstructured data
+            - Go beyond simple optical character recognition (OCR)
+            - Security and compliance
+            - Implement human reviews 
+        - Amazon Textract uses machine learning to instantly read and process any type of document, accurately extracting printed text, handwriting, forms, tables and, other data without the need for any manual effort or custom code.
+    - Amazon Comprehend
+        - Function: Discover insights and relationships in text
+        - Use Cases: Call center analytics, Index and search product reviews, Personalize content on a website
+        - Benefits: 
+            - Get answers from text 
+            - Organize documents by topics
+            - Train modles on your own data
+            - Support general and industry-specific text
+        - Amazon Comprehend is a natural language processing (NLP) service that uses machine learning to find insights and relationships in text. It uses machine learning to help your customers uncover the insights and relationships in their unstructured data.
+    - Amaozon Personalize (fantastic ecommerce!!)
+        - Function: Create real-time, personalized user experiences fast, at scale
+        - Use cases: Retail - Help customers discover products, Media end entretainment - Recommend new content, based on preference
+        - Benefits
+            - Deliver recommendations in real time
+            - Implement personalized recommendations, in days
+            - Personalize touchpoints alog the costumer journey
+    - Amazon Kendra
+        - Function: Enterprise search service powered by machine learning
+        - Use Cases: Improve access to internal knowledge, Enhace sales and customer support services, Help customers find information efficiently
+        - Benefits
+            - Ask natural-language questions, get immediate answers
+            - Bring dat together with a few clicks
+            - Constantly improve search results
+    - Amazon Forecast
+        - Function: Time-series forecasting service
+        - Use Cases: product demand planning, Financial planning, Resource planning
+        - Benefits
+            - Reduce forecasting time from months to hours
+            - Create any time series forecast
+            - Secure business data
+    - Amazon Fraud Detector
+        - Function: Detect more inline fraud faster
+        - Use cases: detect common types of fraud (new account, online payment, guest checkout, online service and loyalty program abuse)
+        - Benefits
+            - Prevent and detect online fraud
+            - Fraud detection in minutes
+            - Customized for your unique business needs
+<br><br><br>
+
+- How you can help customers
+    - AWS AI services solve specific business problems
+    - Customers can have little to no Amazon ML experience
+    - Customers can use APIs to interact with AWS IA services
+---
+
+<br>
+<br>
+<br>
+
+
+## Module 3: Machine Learning Process
+---
+
+### Phases of ML & ML Pipeline
+Business problem >> ML problem framing
+- This is the MOST IMPORTANT part: you can solve this business with traditional code? If no, go to ML. "Can the business problem be framed as a ML problem?"
+
+Business problem >> ML problem framing >> Data Collection >> Data Integration >> Data Preparation
+- Time to look for the content to our ML
+- Set up Data Pipeline to collect data and store data
+- Cleanse, analyze, and prepare data
+- Use different tools for these tasks
+
+Business problem >> ML problem framing >> Data Collection >> Data Integration >> Data Preparation >> Data visualization and analysis
+- Time to check if this content is usefull for a ML model, in good condition to go to trainig
+- Set up and manage notebook environments
+- Use statistical toolls to visualize and analyse data
+
+Business problem >> ML problem framing >> Data Collection >> Data Integration >> Data Preparation >> Data visualization and analysis >> Feature Engineering >> Model training and parameter tuning >> Model evaluation
+- Time to test and select an algorithm for our purpose
+- Perform feature engineering
+- Set up and manage inferenfe clusters
+- Manage and scale model inference APIs
+- Train, monitor and debug model predictions
+- Model versioning and performance tracking
+
+Business problem >> ML problem framing >> Data Collection >> Data Integration >> Data Preparation >> Data visualization and analysis >> Feature Engineering >> Model training and parameter tuning >> Model evaluation >> Are business goals met?
+- If no, we go back to the data argumentation and the feature argumentation and improve it.
+
+- If yes...
+
+do >> Model deployment >> Will generate predictions >> Monitoring and debugging over time (add to the Data argumentation - data collection)
+- Evaluate if model performance meets business goals
+- Will feature augmentations or data augmentations leads to improve model performance
+- Monitor for model performance and model drift
+- To correct model drift, will need to go back to data collectio and training phase
+
+### ML and the cloud journey
+Data Flywheel
+1. Migrate data and workloads to the cloud
+2. Manage data and workloads in the cloud
+3. Build data-driven applications 4. Analyze with data lake architectures
+5. Innovate with machine learning
+
+### How can you help customers
+- Estimating where they are in the ML journey 
+- Help them with the ML Process
+- Avoind unecessary costs
