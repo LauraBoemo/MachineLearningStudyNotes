@@ -294,4 +294,4 @@ Data Flywheel
 ### How can you help customers
 - Estimating where they are in the ML journey 
 - Help them with the ML Process
-- Avoind unecessary costs
+- Avoind unecessary costs     s
