@@ -536,4 +536,4 @@ print (clf.predict([[10, 1, 4, 0, 0, 0]]))
     - Has a single trial (n=1)
     - Can think of a binomial distribution as the sum of bernoulli distributions
 
-## 3. Time Series: Trends and Seasonalityguess who is backkktututu
+## 3. Time Series: Trends and Seasonality
