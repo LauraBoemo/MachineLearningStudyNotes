@@ -1,6 +1,6 @@
 # ☕ Machine Learning and AWS...
 
-Hi! Welcome to my Machine Learning on AWS study notes!! 👋 I strongly hope this document is as useful to you as it is to me. Have fun!  🎉
+Hi! Welcome to my Machine Learning on AWS study notes!! 👋 I strongly hope this document is as useful to you as it is to me. Have fun!!  🎉
 
 <br>
 
